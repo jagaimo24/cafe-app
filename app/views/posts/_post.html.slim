@@ -1,0 +1,10 @@
+.card
+  .card-header.bg-info.text-white
+    h4
+      = @post.shop_name
+  .card-body
+    p.card-text
+      = simple_format(@post.review)
+  .card-footer
+    p.text-right.font-weight-bold.mr-10
+      = @post.created_at.to_s(:datetime_base)

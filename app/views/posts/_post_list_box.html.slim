@@ -1,0 +1,13 @@
+tr
+  th
+    = post.id
+  td
+    = post.shop_name
+  td
+    = post.created_at.to_s(:datetime_base)
+  td
+    = post.updated_at.to_s(:datetime_base)
+  td
+    = link_to '詳細', post, class: 'btn btn-outline-info'
+  td
+    = link_to '削除', post, class: 'btn btn-outline-info', method: :delete, data: {confirm: "投稿記事を削除しますか？", cancel: "キャンセル", commit: "削除する", title: "削除の確認"}

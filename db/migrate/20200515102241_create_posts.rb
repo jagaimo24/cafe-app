@@ -4,10 +4,10 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true, null: false
       t.string :shop_name, null: false
       t.string :image
-      t.string :date, null: false
-      t.string :price, null: false
-      t.string :review, null: false
-      t.integer :rating, null: false
+      t.string :date
+      t.string :price
+      t.string :review
+      t.integer :rating
       t.string :electrical_outlet
       t.string :wifi
       t.string :url

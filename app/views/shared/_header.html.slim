@@ -1,15 +1,19 @@
 header
-  nav.navbar.navbar-expand.navbar-light
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-info
     = link_to "CAFEAPP", root_path, class: 'navbar-brand'
-    #Navber
-      ul.navbar-nav
+    button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"]
+      span.navbar-toggler-icon
+    #navbarNavAltMarkup.collapse.navbar-collapse
+      .navbar-nav
         - if user_signed_in?
-          li.nav-item.active
-            = link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link'
-          li.nav-item.active
-            = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'
+          li.nav-item
+            = active_link_to 'MYPAGE', user_path(current_user), class: 'nav-link'
+          li.nav-item
+            = active_link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link'
+          li.nav-item
+            = active_link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'
         - else
-          li.nav-item.active
-            = link_to "新規登録", new_user_registration_path, class: 'nav-link'
-          li.nav-item.active
-            = link_to "ログイン", new_user_session_path, class: 'nav-link'
+          li.nav-item
+            = active_link_to "新規登録", new_user_registration_path, class: 'nav-link'
+          li.nav-item
+            = active_link_to "ログイン", new_user_session_path, class: 'nav-link'

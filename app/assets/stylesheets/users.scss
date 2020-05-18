@@ -1,3 +1,25 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.mypage-top{
+  padding-bottom: 70px;
+  width: 90%;
+    .user-box{
+      margin-top: 30px;
+      height: 300px;
+      width: 90%;
+      justify-content: center;
+      position: relative;
+        .user-photo{
+          height: 100px;
+          width: 100px;
+          margin-top: 55px;
+          margin-right: 50px;
+          line-height: 300px;
+          background-color: rgb(201, 201, 201);
+          position: relative;
+          border-radius: 100px;
+        }
+        .user-name{
+          line-height: 200px;
+          font-size: 24px;
+        }
+      }
+    }

@@ -1,0 +1,15 @@
+table.table.table-bordered.border-primary.table-hover.table-sm.posts_table
+  thead.bg-info.text-light
+    tr
+      th[scope="col" style="width: 40px"]
+        | No.
+      th[scope="col" style="width: 700px"]
+        | 店名
+      th[scope="col"]
+        | 投稿日
+      th[scope="col"]
+        | 更新日時
+      th
+      th
+  tbody
+    = render partial: 'post_list_box', collection: @posts, as: "post" 

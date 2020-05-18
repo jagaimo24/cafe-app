@@ -1,7 +1,13 @@
-.container.mypage
-  .user-title
-    p
-      | ユーザー紹介
-  .user-name
-    = @user.user_name
-  = link_to '編集', edit_user_registration_path, class:"btn btn-primary"
+.d-flex.align-items-center.mt-4.mb-4
+  .ml-auto.posts_button
+    = link_to '投稿一覧', post_path(@user), class: 'btn btn-outline-info'
+  - if current_user == @user
+    = link_to '編集', edit_user_registration_path, class: "btn btn-outline-info"
+.row.mypage-top
+  .col-md-12
+    .user-box.display-flex.box-center.border-top.border-bottom
+      .display-flex
+        .user-image
+          = image_tag @user.image.to_s, class: "user-photo"
+        .user-name
+          = @user.user_name

@@ -1,0 +1,6 @@
+.d-flex.align-items-center
+  h1
+    | 投稿
+  .ml-auto.posts_button
+    = link_to '投稿一覧', posts_path, class: 'btn btn-outline-info'
+= render partial: 'form', locals: { post: @post}

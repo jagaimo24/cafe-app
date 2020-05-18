@@ -15,6 +15,10 @@ services:
     volumes:
       - .:/app_name
       - bundle:/usr/local/bundle:delegated
+      - /app/vendor
+      - /app/tmp
+      - /app/log
+      - /app/.git
     ports:
       - "3000:3000"
     links:

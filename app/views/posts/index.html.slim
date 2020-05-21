@@ -3,4 +3,6 @@
     | 投稿一覧
   .ml-auto.posts_button
     = link_to '投稿', new_post_path, class: "btn btn-outline-info"
+- if flash[:notice]
+  .alert.alert-primary = flash[:notice]
 = render  'post_list'

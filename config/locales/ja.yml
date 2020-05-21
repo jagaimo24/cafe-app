@@ -1,5 +1,9 @@
 ja:
   activerecord:
+    attributes:
+            post:
+                shop_name: 店名
+                review: レビュー
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

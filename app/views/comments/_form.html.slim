@@ -1,0 +1,10 @@
+= render 'shared/flash_messages'
+.p-comment__formBox
+  p.p-comment__formTitle
+    | コメント記入
+  = form_with(model: [post, comment], locals: true ) do |f| 
+    = f.hidden_field :post_id
+    .form-group
+      = f.label :comment, 'コメント'
+      = f.text_area :content, class: 'form-control', rows: 4
+    = f.submit '送信', class: 'btn btn-info btn-block'

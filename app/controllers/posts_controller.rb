@@ -6,6 +6,8 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comments = @post.comments.includes(:user).order(created_at: :desc)
+    @comment = Comment.new(post_id: @post.id)
   end
 
   def new
@@ -17,12 +19,13 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    @post.user_id = current_user.id
     if @post.save(post_params)
       flash[:notice] = "投稿しました!"
-      redirect_to posts_path
+      redirect_back(fallback_location: root_path)
     else
-      render 'new'
       flash[:error_messages] = @post.errors.full_messages
+      render 'new'
     end
   end
 

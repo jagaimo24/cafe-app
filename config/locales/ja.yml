@@ -4,6 +4,8 @@ ja:
             post:
                 shop_name: 店名
                 review: レビュー
+            comment:
+                content: コメント
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

@@ -1,5 +1,6 @@
-- flash.each do |msg_type, msg|
-  |  <div class="alert alert-
-  = msg_type
-  | " role="alert" id="alert"> 
-  = msg
+- if flash[:error_messages]
+  .alert.alert-danger
+    ul
+      - flash[:error_messages].each do |msg|
+        li
+          = msg

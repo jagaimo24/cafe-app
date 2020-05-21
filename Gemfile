@@ -44,6 +44,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rubocop-airbnb'
   gem 'annotate'
+  gem 'rails-flog', require: 'flog'
   gem 'faker'
 end
 

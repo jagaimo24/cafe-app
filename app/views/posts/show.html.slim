@@ -5,3 +5,8 @@
 - if flash[:notice]
   .alert.alert-primary = flash[:notice]
 = render @post
+.p-comment_list
+  .p-comment_listTitle
+    | #{@comments.count} 件コメント
+  = render partial: 'comments/comments', collection: @comments, as: "comment"
+= render partial: 'comments/form', locals: { comment: @comment, post: @post }

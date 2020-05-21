@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     get "sign_out", :to => "users/sessions#destroy"
   end
   resources :users
-  resources :posts
+  resources :posts do
+    resources :comments, only: [:create, :destroy]
+  end
 end

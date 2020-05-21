@@ -1,15 +1,10 @@
-- if flash[:error_messages]
-  .alert.alert-danger
-    ul
-      - flash[:error_messages].each do |message|
-        li
-          = message
+= render 'shared/flash_messages'
 = form_for post do |f|
   .form-group
     = f.label :shop_name, '投稿タイトル'
     = f.text_field :shop_name, class: 'form-control'
     small#shop-name-tip.form-text.text-muted
-      |  店名を入力してください。 
+      |  店名を入力してください。
   .form-group
     = f.label :review, '投稿内容'
     = f.text_area :review, class: 'form-control', rows:10

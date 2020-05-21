@@ -1,0 +1,5 @@
+.p-comment__item
+  p = simple_format(comment.content)
+  .p-comment__bottomLine
+    span = comment.created_at.to_s(:datetime_base)
+    span = link_to '削除', post_comment_path(comment.post_id, comment.id), class: 'btn btn-outline-info delete', method: :delete, data: { confirm: "コメントを削除しますか？", cancel: "キャンセル", commit: "削除する", title: "削除の確認" }

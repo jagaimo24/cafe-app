@@ -13,3 +13,4 @@ table.table.table-bordered.border-primary.table-hover.table-sm.posts_table
       th
   tbody
     = render partial: 'post_list_box', collection: @posts, as: "post" 
+= paginate @posts

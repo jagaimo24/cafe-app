@@ -43,6 +43,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'pry-rails'
   gem 'rubocop-airbnb'
+  gem 'annotate'
   gem 'faker'
 end
 
@@ -80,3 +81,4 @@ gem 'html2slim'
 gem 'active_link_to'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'kaminari'

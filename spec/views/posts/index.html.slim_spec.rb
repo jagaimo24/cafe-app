@@ -8,7 +8,7 @@ RSpec.describe "posts/index", type: :view do
       ),
       Post.create!(
         shop_name: "Shop Name"
-      )
+      ),
     ])
   end
 

@@ -1,16 +1,11 @@
-table.table.table-bordered.border-primary.table-hover.table-sm.posts_table
-  thead.bg-info.text-light
-    tr
-      th[scope="col" style="width: 40px"]
-        | No.
-      th[scope="col" style="width: 700px"]
-        | 店名
-      th[scope="col"]
-        | 投稿日
-      th[scope="col"]
-        | 更新日時
-      th
-      th
-  tbody
-    = render partial: 'post_list_box', collection: @posts, as: "post" 
-= paginate @posts
+tr
+  td
+    = post.shop_name
+  td
+    = post.created_at.to_s(:datetime_base)
+  td
+    = post.updated_at.to_s(:datetime_base)
+  td
+    = link_to '詳細', post, class: 'btn btn-outline-info'
+  td
+    = link_to '削除', post, class: 'btn btn-outline-info', method: :delete, data: {confirm: "投稿記事を削除しますか？", cancel: "キャンセル", commit: "削除する", title: "削除の確認"}

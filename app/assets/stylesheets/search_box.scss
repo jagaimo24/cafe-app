@@ -1,0 +1,24 @@
+@mixin input{
+  border: none;
+  border-radius: 50px;
+  background: #F4F8F9;
+  height: 30px;
+  width: 100%;
+  padding-left: 35px;
+  padding-right: 20px;
+}
+
+.search-box{
+  margin-right: 15px;
+  position: relative; 
+  .input{
+    @include input;
+  }
+}
+
+.search-icon{
+  position: absolute;
+  top: 7px;
+  left: 10px;
+  color: #aaa;
+}

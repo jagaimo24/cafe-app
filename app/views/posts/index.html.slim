@@ -3,6 +3,24 @@
     | 投稿一覧
   .ml-auto.posts_button
     = link_to '投稿', new_post_path, class: "btn btn-outline-info"
-- if flash[:notice]
-  .alert.alert-primary = flash[:notice]
-= render  'post_list'
+- if @search_posts.present?
+  = "「#{params[:q][:shop_name_cont]}」の検索結果: #{@search_posts.count}件" unless params[:q][:shop_name_cont] == ""
+  table.table.table-bordered.border-primary.table-hover.table-sm.posts_table
+    thead.bg-info.text-light
+      tr
+        th[scope="col" style="width: 700px"]
+          | 店名
+        th[scope="col"]
+          | 投稿日
+        th[scope="col"]
+          | 更新日時
+        th
+        th
+    tbody
+    - if @search_posts
+      = render partial: 'post_list', collection: @search_posts, as: 'post'
+    - else
+      = render partial: 'post_list', collection: @posts, as: 'post'
+  = paginate @posts
+- else
+  = "検索に一致するカフェはありませんでした"

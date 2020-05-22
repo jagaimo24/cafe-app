@@ -4,6 +4,10 @@ header
     button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"]
       span.navbar-toggler-icon
     #navbarNavAltMarkup.collapse.navbar-collapse
+      .search-box
+        = search_form_for @search, url: posts_path do |f|
+          = icon 'fas', 'search', class: 'search-icon'
+          = f.text_field :shop_name_cont, placeholder: 'カフェを検索', class: 'input'
       .navbar-nav
         - if user_signed_in?
           li.nav-item

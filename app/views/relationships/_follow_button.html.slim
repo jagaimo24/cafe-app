@@ -1,0 +1,5 @@
+#follow_form.follow_btn.mt-3
+  - if current_user.following?(user)
+    = render partial: 'relationships/unfollow', locals: { user: user }
+  - else
+    = render partial: 'relationships/follow', locals: { user: user }

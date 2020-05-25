@@ -76,7 +76,6 @@ gem 'omniauth-twitter'
 gem 'bootstrap', '~> 4.4.1'
 gem "font-awesome-sass"
 gem 'data-confirm-modal'
-gem 'jquery-rails'
 gem 'slim-rails'
 gem 'html2slim'
 gem 'active_link_to'

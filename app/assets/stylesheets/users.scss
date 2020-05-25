@@ -1,25 +1,34 @@
-.mypage-top{
+.mypage-top {
   padding-bottom: 70px;
   width: 90%;
-    .user-box{
-      margin-top: 30px;
-      height: 300px;
-      width: 90%;
-      justify-content: center;
-      position: relative;
-        .user-photo{
-          height: 100px;
-          width: 100px;
-          margin-top: 55px;
-          margin-right: 50px;
-          line-height: 300px;
-          background-color: rgb(201, 201, 201);
-          position: relative;
-          border-radius: 100px;
-        }
-        .user-name{
-          line-height: 200px;
-          font-size: 24px;
-        }
+  .user-box {
+    margin-top: 30px;
+    justify-content: center;
+    position: relative;
+    .user-info {
+      width: 80%;
+      margin: 30px auto;
+      .user-image {
+        height: 200px;
+        width: 200px;
+        background-color: rgb(201, 201, 201);
+      }
+      .user-links-btn {
+        width: 70%;
+        margin: 5px auto;
+      }
+      .user-name {
+        font-size: 30px;
+        font-weight: bold;
+        margin: 1rem 0;
+      }
+      .user-follower {
+        width: 50%;
       }
     }
+  }
+}
+.user-photo {
+  height: 100%;
+  width: 100%;
+}

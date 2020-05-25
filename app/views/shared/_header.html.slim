@@ -1,9 +1,9 @@
 header
-  nav.navbar.navbar-expand-lg.navbar-dark.bg-info
-    = link_to "CAFEAPP", root_path, class: 'navbar-brand'
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    = link_to "SHARE CAFE", root_path, class: 'navbar-brand'
     button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"]
       span.navbar-toggler-icon
-    #navbarNavAltMarkup.collapse.navbar-collapse
+    #navbarNavAltMarkup.collapse.navbar-collapse.justify-content-center
       .search-box
         = search_form_for @search, url: posts_path do |f|
           = icon 'fas', 'search', class: 'search-icon'

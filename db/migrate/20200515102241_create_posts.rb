@@ -11,7 +11,8 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :electrical_outlet
       t.string :wifi
       t.string :url
-      t.string :business_hours
+      t.time :open_time
+      t.time :end_time
       t.string :phone_number
       t.string :street_address
       t.string :smoking_seat

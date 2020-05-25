@@ -4,6 +4,19 @@ ja:
             post:
                 shop_name: 店名
                 review: レビュー
+                date: 日付
+                electrical_outlet: コンセント
+                image: 画像
+                open_time: 開始時間
+                end_time: 終了時間
+                phone_number: 電話番号
+                price: 価格帯
+                rating: 評価
+                review: レビュー
+                smoking_seat: 喫煙席
+                street_address: 住所
+                url: URL
+                wifi: WiFi
             comment:
                 content: コメント
     errors:

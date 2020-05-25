@@ -1,4 +1,4 @@
-10.times do |n|
+50.times do |n|
   user_name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
@@ -7,9 +7,17 @@
                password:              password,
                password_confirmation: password)
 end
+
 users = User.order(:created_at).take(5)
 5.times do
   shop_name  = Faker::Games::Pokemon.name
   review = Faker::Lorem.sentence(word_count: 5)
   users.each { |user| user.posts.create!(shop_name: shop_name, review: review, user_id: user.id) }
 end
+
+users = User.all
+user  = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }

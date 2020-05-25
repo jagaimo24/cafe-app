@@ -1,4 +1,4 @@
-.container-login
+.container-form
   h1
     = t('.resend_unlock_instructions')
   = form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
@@ -7,5 +7,5 @@
       = f.label :email
       = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
     .form-group
-      = f.submit t('.resend_unlock_instructions'), class: 'btn btn-primary'
+      = f.submit t('.resend_unlock_instructions'), class: 'btn btn-dark rounded-pill'
   = render 'devise/shared/links'

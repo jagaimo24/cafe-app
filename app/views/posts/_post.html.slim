@@ -1,10 +1,38 @@
 .card
-  .card-header.bg-info.text-white
+  div.card-img-top
+      = post.image
+  .card-header.bg-dark.text-white.rounded
     h4
       = @post.shop_name
-  .card-body
-    p.card-text
-      = simple_format(@post.review)
+  table.table.table-bordered.border-dark.shop-table
+    tbody
+      tr
+        th.table-secondary
+          | 営業時間
+        td
+          = "#{@post.open_time}".slice(11..15)
+          | 〜
+          = "#{@post.end_time}".slice(11..15)
+      tr
+        th.table-secondary
+          | 電話番号
+        td
+          = @post.phone_number
+      tr
+        th.table-secondary
+          | 住所
+        td
+          = simple_format(@post.street_address)
+      tr
+        th.table-secondary
+          | URL
+        td
+          = @post.url
+      tr
+        th.table-secondary
+          | レビュー
+        td
+          = simple_format(@post.review)
   .card-footer
     p.text-right.font-weight-bold.mr-10
       = @post.created_at.to_s(:datetime_base)

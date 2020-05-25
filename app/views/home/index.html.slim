@@ -1,11 +1,10 @@
 .container.home-top
-  .home-top_main
-    .home-top_main_box
-      .home-top_main_box_title
-        p
-          | CAFEAPPをはじめよう。
-      .home-top_main__box_text
-        p
-          | お気に入りのカフェを投稿するアプリです。
-      .home-top__main__box__start
-        = link_to "登録する", new_user_registration_path, class: "btn btn-lg btn-primary "
+  .home-top-main.text-center
+    .home-top-main-title
+      p
+        | SHARE CAFEへようこそ。
+    .home-top-main-text
+      p
+        | お気に入りのカフェを投稿しましょう！
+    .home-top-main-start
+      = link_to "登録する", new_user_registration_path, class: "btn btn-xs btn-outline-dark rounded-pill"

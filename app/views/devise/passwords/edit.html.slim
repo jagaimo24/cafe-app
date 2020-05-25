@@ -1,4 +1,4 @@
-.container-login
+.container-form
   h1
     = t('.change_your_password')
   = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
@@ -14,5 +14,5 @@
       = f.label :password_confirmation, t('.confirm_new_password')
       = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control', required: true
     .form-group
-      = f.submit t('.change_my_password'), class: 'btn btn-primary'
+      = f.submit t('.change_my_password'), class: 'btn btn-dark rounded-pill'
   = render 'devise/shared/links'

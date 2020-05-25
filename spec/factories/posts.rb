@@ -3,10 +3,11 @@
 # Table name: posts
 #
 #  id                :bigint           not null, primary key
-#  business_hours    :string(255)
 #  date              :string(255)
 #  electrical_outlet :string(255)
+#  end_time          :time
 #  image             :string(255)
+#  open_time         :time
 #  phone_number      :string(255)
 #  price             :string(255)
 #  rating            :integer

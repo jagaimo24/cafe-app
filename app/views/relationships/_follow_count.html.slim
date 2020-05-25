@@ -1,0 +1,12 @@
+.user-followers.mr-3
+  = link_to following_user_path(user),class: "text-dark text-line-none" do
+    .user-follow-text
+      | フォロー
+    #followers
+      = user.following.count
+.user-following.mr-3
+  = link_to followers_user_path(user),class:"text-dark text-line-none" do
+    .user-follow-text
+      | フォロワー
+    #following
+      = user.followers.count

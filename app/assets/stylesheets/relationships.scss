@@ -1,0 +1,12 @@
+.follow-list {
+  .follow-card {
+    margin: 20px;
+    width: 380px;
+    &__box {
+      &__left {
+        width: 40%;
+        background-color: rgb(201, 201, 201);
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @posts = Post.page(params[:page]).per(20)
   end
@@ -56,6 +56,22 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:shop_name, :review)
+    params.require(:post).permit(:id,
+                                 :shop_name,
+                                 :review,
+                                 :review,
+                                 :date,
+                                 :electrical_outlet,
+                                 :image,
+                                 :open_time,
+                                 :end_time,
+                                 :phone_number,
+                                 :price,
+                                 :rating,
+                                 :review,
+                                 :smoking_seat,
+                                 :street_address,
+                                 :url,
+                                 :wifi)
   end
 end

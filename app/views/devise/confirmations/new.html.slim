@@ -1,4 +1,4 @@
-.container-login
+.container-form
   h1
     = t('.resend_confirmation_instructions')
   = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
@@ -7,5 +7,5 @@
       = f.label :email
       = f.email_field :email, autofocus: true, autocomplete: 'email', required: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'form-control'
     .form-group
-      = f.submit t('.resend_confirmation_instructions'), class: 'btn btn-primary'
+      = f.submit t('.resend_confirmation_instructions'), class: 'btn btn-dark rounded-pill'
   = render 'devise/shared/links'

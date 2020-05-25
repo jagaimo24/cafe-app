@@ -1,17 +1,35 @@
+body {
+  margin: 0 auto;
+}
+.main-container {
+  min-height: 100vh;
+}
+.container-form {
+  @extend .container-fluid;
+  max-width: 576px;
+  padding: 2rem;
+}
+.footer {
+  margin-top: auto;
+  width: 100%;
+  height: 160px;
+  background-color: #f5f5f5;
+  .container {
+    max-width: 680px;
+    .footer-main {
+      padding-top: 50px;
+      text-align: center;
+      .footer-logo {
+        font-size: 28px;
+        color: #666;
+      }
+      .footer-text {
+        font-size: 7px;
+        color: #666;
+      }
+    }
+  }
+}
 h1 {
   margin: 30px 0;
 }
-
- .container-login {
-   @extend .container-fluid;
-   max-width: 576px;
-   padding: 2rem;
- }
-
- .alert-notice {
-   @extend .alert-info;
- }
- 
- .alert-alert {
-   @extend .alert-danger;
- }

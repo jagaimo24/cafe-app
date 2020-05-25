@@ -1,12 +1,14 @@
 .d-flex.align-items-center.mt-4.mb-4
+  = link_to request.referrer || posts_path do
+    i.fa.fa-reply.text-dark aria-hidden="true"
+      | 一覧ページへ戻る
   .ml-auto.posts_button
-    = link_to '投稿一覧', posts_path, class: 'btn btn-outline-info'
-    = link_to '編集', edit_post_path(@post), class: "btn btn-outline-info"
-- if flash[:notice]
-  .alert.alert-primary = flash[:notice]
+    = link_to '編集', edit_post_path(@post), class: "btn btn-outline-dark rounded-pill"
+  - if current_user.id == @post.user.id
+     = link_to '削除', @post, class: 'btn btn-outline-danger', method: :delete, data: {confirm: "投稿記事を削除しますか？", cancel: "キャンセル", commit: "削除する", title: "削除の確認"}
 = render @post
 .p-comment_list
   .p-comment_listTitle
-    | #{@comments.count} 件コメント
+    | コメント #{@comments.count} 件
   = render partial: 'comments/comments', collection: @comments, as: "comment"
 = render partial: 'comments/form', locals: { comment: @comment, post: @post }

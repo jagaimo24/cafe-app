@@ -13,7 +13,9 @@ header
           li.nav-item
             = active_link_to 'MYPAGE', user_path(current_user), class: 'nav-link'
           li.nav-item
-            = active_link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link'
+            = active_link_to 'カフェの投稿', new_post_path, class: 'nav-link'
+          li.nav-item
+            = active_link_to 'カフェ一覧', posts_path, class: 'nav-link'
           li.nav-item
             = active_link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'
         - else

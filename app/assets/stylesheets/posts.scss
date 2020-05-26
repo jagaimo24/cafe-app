@@ -17,4 +17,24 @@ h1 {
 .shop-card {
   margin: 20px;
   width: 30rem;
+  .card-img-top {
+    height: 300px;
+    width: 470px;
+  }
+}
+.user-link-img {
+  width: 32px;
+  height: 32px;
+}
+.icon-box {
+  width: 90px;
+  &__item {
+    margin-left: 10px;
+  }
+}
+.favorite-btn {
+  width: 90px;
+}
+i.fa-reply::before {
+  margin-right: 5px;
 }

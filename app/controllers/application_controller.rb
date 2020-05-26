@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
 
   def set_search
     @search = Post.ransack(params[:q])
-    @search_posts = @search.result(distinct: true).page(params[:page]).per(20)
+    @search_posts = @search.result(distinct: true).page(params[:page])
+                    .per(20).order(created_at: :desc)
   end
 
   protected

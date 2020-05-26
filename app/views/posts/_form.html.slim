@@ -1,6 +1,10 @@
 = render 'shared/flash_messages'
 = form_for post do |f|
   .form-group
+      = f.label :image
+      br
+      = f.file_field :image
+  .form-group
     = f.label :shop_name
     = f.text_field :shop_name, class: 'form-control'
   .form-group
@@ -12,15 +16,13 @@
   .form-group
     = f.label :url
     = f.url_field :url, class: 'form-control'
-  .form-group
-    = f.label :open_time
-    br/
-    .form_border_bottom
+  .form-group.row
+    .col-sm-12
+      = f.label :open_time, '営業時間'
+    .form_border_bottom.col-sm-3
       = f.time_select :open_time
-  .form-group
-    = f.label :end_time
-    br/
-    .form_border_bottom
+    span 〜
+    .form_border_bottom.col-sm-3
       = f.time_select :end_time
   .form-group
     = f.label :review, '投稿内容'

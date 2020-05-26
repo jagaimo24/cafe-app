@@ -1,0 +1,5 @@
+- if user_signed_in?
+  - if post.favorited_by?(current_user)
+    = link_to post.favorites.count, post_favorites_path(post.id), class: "fas fa-heart btn btn-block btn-outline-danger", method: :delete, remote: true, data: {turbolinks: "false"}
+  - else
+    = link_to post.favorites.count, post_favorites_path(post.id), class: "far fa-heart btn btn-block btn-outline-dark", method: :post, remote: true, data: {turbolinks: "false"}

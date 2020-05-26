@@ -1,6 +1,6 @@
-.card
-  div.card-img-top
-      = post.image
+.card.rounded
+  div.card-img-top.text-center
+      = image_tag post.image.to_s, size:"900x500", class: 'img-fluid'
   .card-header.bg-dark.text-white.rounded
     h4
       = @post.shop_name

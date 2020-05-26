@@ -2,7 +2,7 @@
   h1.text-center
     | 編集
   = render partial: 'form', locals: { post: @post}
-  .ml-auto
-    = link_to posts_path do
-      i.fa.fa-reply.text-dark aria-hidden="true"
-        | 一覧ページへ戻る
+  .ml-auto.mt-3
+    = link_to post_path(@post) do
+      i.fa.fa-reply aria-hidden="true"
+        | 戻る

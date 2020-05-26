@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
   resources :posts do
     resources :comments, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
   end
   resources :relationships, only: [:create, :destroy]
 end

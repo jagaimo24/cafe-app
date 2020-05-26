@@ -1,16 +1,11 @@
-.d-flex.align-items-center
-  h1
-    | 投稿一覧
-  .ml-auto.posts_button
-    = link_to '投稿', new_post_path, class: "btn btn-outline-info rounded-pill"
+.m-5
+  h3.font-weight-bold
+    | みんなのカフェ
+  p.mt-3 = "検索結果: #{@search_posts.count}件"
 - if @search_posts.present?
-  p = "検索結果: #{@search_posts.count}件" unless request.referer&.include?("/posts/**/") 
-  .row
-    .card-deck.shop-box
-      - if @search_posts
-        = render partial: 'post_list', collection: @search_posts, as: 'post'
-      - else
-        = render partial: 'post_list', collection: @posts, as: 'post'
-  = paginate @posts
+  .container
+    .shop-box.row.mx-auto
+      = render partial: 'post_list', collection: @search_posts, as: 'post'
+  = paginate @search_posts
 - else
   = "「#{params[:q][:shop_name_cont]}」の検索結果に一致するカフェはありませんでした"

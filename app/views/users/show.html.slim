@@ -6,7 +6,10 @@
       .align-items-center.container
         .user-info.row
           .user-image.col-lg-4
-            = image_tag @user.image.to_s, class: "user-photo" if @user.image?
+            - if @user.image?
+              = image_tag @user.image.to_s, class: "user-photo"
+            - else
+              i.fas.fa-user-circle.user-icon
           .user-info-right.col-lg-8
             .row.h-100
               .user-links.col-xs-12.w-100
@@ -22,3 +25,5 @@
                   = render partial: 'relationships/follow_count', locals: { user: @user }
                 - unless current_user == @user
                   = render partial: 'relationships/follow_button', locals: { user: @user }
+.row
+  = render partial: 'posts/post_list', collection: @user.posts, as: 'post'

@@ -6,8 +6,9 @@ html
     = csrf_meta_tags
     = csp_meta_tag
     meta[name="viewport" content="width=device-width,initial-scale=1"]
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'load'
+    script[src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"]
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'load'
   body
     = render 'shared/header'
     .container.main-container

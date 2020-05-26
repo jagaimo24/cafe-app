@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.page(params[:page]).per(20)
+    @posts = Post.page(params[:page]).per(20).order(created_at: :desc)
   end
 
   def show
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.save(post_params)
       flash[:notice] = "投稿しました!"
-      redirect_back(fallback_location: root_path)
+      redirect_to user_path(current_user)
     else
       flash[:error_messages] = @post.errors.full_messages
       render 'new'
@@ -30,15 +30,9 @@ class PostsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: "更新しました!" }
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
+    @post.update(post_params)
+    flash[:notice] = "更新しました!"
+    redirect_to post_path(@post)
   end
 
   def destroy
@@ -58,7 +52,6 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:id,
                                  :shop_name,
-                                 :review,
                                  :review,
                                  :date,
                                  :electrical_outlet,

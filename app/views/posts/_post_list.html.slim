@@ -1,21 +1,31 @@
-= link_to post_path(post), class: 'text-center' do
-  .card.img-thumbnail.text-dark.shop-card
-    img.card-img-top
-      = post.image
+.shop-card.card.img-thumbnail.shadow-lg.rounded.md-4
+  = link_to post_path(post)  do
+    .card-img-top.col
+      = image_tag post.image.to_s, class: 'img-fluid h-100 w-100' if post.image?
     .card-body.px-2.py-3
-      h5.card-title
+      h6.card-header.text-center
         = post.shop_name
-      table.table.card-text
-        tbody
-          tr
-            th.
-              | 営業時間
-            td
-              = "#{post.open_time}".slice(11..15)
-              | 〜
-              = "#{post.end_time}".slice(11..15)
-          tr
-            th.
-              | 住所
-            td
-              = post.street_address
+      .card-text
+        p.col-xs-1
+          = "#{post.open_time}".slice(11..15)
+          | 〜
+          = "#{post.end_time}".slice(11..15)
+        p.col-xs-1.h-auto
+          = post.street_address
+      .user-link.mb-2
+        = link_to user_path(post.user) do
+          - if post.user.image?
+            = image_tag post.user.image.to_s, class: "user-link-img"
+          - else
+            i.fas.fa-user-circle.fa-2x.mr-2
+          = post.user.user_name
+      .card-footer.d-flex.justify-content-between
+        .icon-box.d-flex.
+          .icon-box__item
+            i.fas.fa-heart
+              = post.favorites.count
+          .icon-box__item
+            i.fas.fa-comment-alt
+              = post.comments.count
+        div[class="favorites-button-#{post.id} favorite-btn"]
+          = render partial: 'favorites/favorite', locals: { post: post }

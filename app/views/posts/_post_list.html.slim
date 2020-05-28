@@ -1,7 +1,10 @@
-.shop-card.card.img-thumbnail.shadow-lg.rounded.md-4
+.shop-card.card.shadow-lg
   = link_to post_path(post)  do
-    .card-img-top.col
-      = image_tag post.image.to_s, class: 'img-fluid h-100 w-100' if post.image?
+    .card-img-top
+      - if post.image?
+        = image_tag post.image.to_s, class: 'img-fluid h-100 w-100 top-rounded'
+      - else
+        = image_tag "/assets/default.png", class: 'img-fluid h-100 w-100 top-rounded'
     .card-body.px-2.py-3
       h6.card-header.text-center
         = post.shop_name

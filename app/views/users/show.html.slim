@@ -25,5 +25,7 @@
                   = render partial: 'relationships/follow_count', locals: { user: @user }
                 - unless current_user == @user
                   = render partial: 'relationships/follow_button', locals: { user: @user }
-.row
-  = render partial: 'posts/post_list', collection: @user.posts, as: 'post'
+.shop-container
+  .shop-box.jscroll
+    = render partial: 'posts/post_list', collection: @user.posts, as: 'post'
+    = link_to_next_page @search_posts, '次のページ', class: "next"

@@ -11,10 +11,11 @@
 // about supported directives.
 //
 //= require jquery3
+//= require jquery.jscroll.min.js
 //= require rails-ujs
 //= require activestorage
+//= require turbolinks
+//= require_tree .
 //= require popper
 //= require bootstrap-sprockets
 //= require data-confirm-modal
-//= require turbolinks
-//= require_tree .

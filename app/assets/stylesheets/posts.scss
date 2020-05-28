@@ -14,27 +14,31 @@ h1 {
       cursor: pointer;
   }
 }
-.shop-card {
-  margin: 20px;
-  width: 30rem;
-  .card-img-top {
-    height: 300px;
-    width: 470px;
+.shop-container {
+  max-width: 800px;
+  margin: 0 auto;
+  .shop-card {
+    margin: 20px;
+    border-radius: 1.2rem;
   }
-}
-.user-link-img {
-  width: 32px;
-  height: 32px;
-}
-.icon-box {
-  width: 90px;
-  &__item {
-    margin-left: 10px;
+  .user-link-img {
+    width: 32px;
+    height: 32px;
   }
-}
-.favorite-btn {
-  width: 90px;
-}
-i.fa-reply::before {
-  margin-right: 5px;
+  .icon-box {
+    width: 90px;
+    &__item {
+      margin-left: 10px;
+    }
+  }
+  .favorite-btn {
+    width: 90px;
+  }
+  i.fa-reply::before {
+    margin-right: 5px;
+  }
+  .top-rounded {
+    border-top-left-radius: 1.2rem;
+    border-top-right-radius: 1.2rem;
+  }
 }

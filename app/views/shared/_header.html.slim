@@ -3,12 +3,15 @@ header
     = link_to "SHARE CAFE", root_path, class: 'navbar-brand'
     button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"]
       span.navbar-toggler-icon
+    - if user_signed_in?
+      div
+        = render 'shared/notification_bell'
     #navbarNavAltMarkup.collapse.navbar-collapse.justify-content-center
       .search-box
         = search_form_for @search, url: posts_path do |f|
           = icon 'fas', 'search', class: 'search-icon'
           = f.text_field :shop_name_cont, placeholder: 'カフェを検索', class: 'input'
-      .navbar-nav
+      ul.navbar-nav
         - if user_signed_in?
           li.nav-item
             = active_link_to 'MYPAGE', user_path(current_user), class: 'nav-link'

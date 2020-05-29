@@ -4,11 +4,13 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
+      @post = @comment.post
+      @post.create_notification_comment!(current_user, @comment.id)
       flash[:notice] = 'コメントを投稿しました!'
-      redirect_back(fallback_location: root_path)
+      redirect_to post_path(@post)
     else
       flash[:error_messages] = @comment.errors.full_messages
-      redirect_back(fallback_location: root_path)
+      render 'posts/show'
     end
   end
 

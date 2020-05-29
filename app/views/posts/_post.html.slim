@@ -1,6 +1,9 @@
 .card.top-rounded
   div.card-img-top.text-center
+    - if @post.image?
       = image_tag @post.image.to_s, class: 'img-fluid h-100 w-100 top-rounded'
+    - else
+      = image_tag "/assets/default.png", class: 'img-fluid h-100 w-100 top-rounded'
   .card-header.bg-dark.text-white.rounded
     h4
       = @post.shop_name

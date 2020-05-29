@@ -1,0 +1,34 @@
+- unless notifications.visitor == current_user
+  .col-md-6.mx-auto
+    .form-inline
+      span
+        = link_to user_path(notifications.visitor) do
+          div
+            - if notifications.visitor.image?
+              = image_tag notifications.visitor.image.to_s, class: "icon_mini"
+            - else
+              i.fas.fa-user-circle.fa-3x
+          strong
+            = notifications.visitor.user_name
+        = 'さんが'
+        - case notifications.action
+        - when 'follow' then
+          = 'あなたをフォローしました'
+        - when 'favorite' then
+          = link_to 'あなたの投稿', notifications.post, class: 'font-weight-bold'
+          = "にいいねしました"
+        - when 'comment' then
+          - if notifications.post.user_id == notifications.visited.id
+            = link_to "あなたの投稿", notifications.post, class: 'font-weight-bold'
+          - else
+            span
+              = link_to post_path(notifications.post) do
+                = image_tag notifications.post.user.image.to_s, class: 'icon_mini' if notifications.post.user.image?
+                strong
+                  = notifications.post.user.user_name + "さんの投稿"
+          = "にコメントしました"
+          p.test-muted.mb-0.mt-2
+            = Comment.find_by(id: notifications.comment_id)&.content
+    .small.text-muted.text-right
+      = time_ago_in_words(notifications.created_at).upcase
+    hr

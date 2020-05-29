@@ -1,4 +1,4 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-RSpec.describe "Comments", type: :request do
-end
+# RSpec.describe "Comments", type: :request do
+# end

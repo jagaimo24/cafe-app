@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'pry-rails'
+  gem 'pry-byebug'
   gem 'rubocop-airbnb'
   gem 'annotate'
   gem 'rails-flog', require: 'flog'

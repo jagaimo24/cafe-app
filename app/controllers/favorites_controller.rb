@@ -3,6 +3,7 @@ class FavoritesController < ApplicationController
     @post = Post.find(params[:post_id])
     favorite = current_user.favorites.find_or_create_by(post_id: params[:post_id])
     favorite.save
+    @post.create_notification_favorite!(current_user)
   end
 
   def destroy

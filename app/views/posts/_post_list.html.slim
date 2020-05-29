@@ -1,5 +1,5 @@
-.shop-card.card.shadow-lg
-  = link_to post_path(post)  do
+= link_to post_path(post)  do
+  .shop-card.card.shadow-lg
     .card-img-top
       - if post.image?
         = image_tag post.image.to_s, class: 'img-fluid h-100 w-100 top-rounded'

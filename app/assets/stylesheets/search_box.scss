@@ -6,7 +6,6 @@
   width: 100%;
   padding-left: 35px;
 }
-
 .search-box {
   margin-right: 15px;
   position: relative;
@@ -14,11 +13,10 @@
   .input{
     @include input;
   }
-}
-
-.search-icon {
-  position: absolute;
-  top: 7px;
-  left: 10px;
-  color: #aaa;
+  .search-icon {
+    position: absolute;
+    top: 7px;
+    left: 10px;
+    color: #aaa;
+  }
 }

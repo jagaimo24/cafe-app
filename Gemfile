@@ -79,7 +79,6 @@ gem "font-awesome-sass"
 gem 'data-confirm-modal'
 gem 'slim-rails'
 gem 'html2slim'
-gem 'active_link_to'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'kaminari'

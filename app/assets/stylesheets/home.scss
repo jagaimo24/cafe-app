@@ -1,6 +1,5 @@
-.home-top-main {
-  margin-top: 100px;
-  .home-top-main-start {
-    margin-top: 30px;
-  }
+.home-top {
+  height: 500px;
+  background:linear-gradient(rgba(247, 247, 247, 0) 20%, rgba(0, 0, 0, 0.8) 60%), image-url('home.jpg');
+  background-size: cover;
 }

@@ -1,28 +1,16 @@
 header
   nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
     = link_to "SHARE CAFE", root_path, class: 'navbar-brand'
-    button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"]
-      span.navbar-toggler-icon
+    .search-box.navigation-link
+      = search_form_for @search, url: posts_path do |f|
+        = icon 'fas', 'search', class: 'search-icon'
+        = f.text_field :shop_name_cont, placeholder: 'カフェを検索', class: 'input'
     - if user_signed_in?
-      div
-        = render 'shared/notification_bell'
-    #navbarNavAltMarkup.collapse.navbar-collapse.justify-content-center
-      .search-box
-        = search_form_for @search, url: posts_path do |f|
-          = icon 'fas', 'search', class: 'search-icon'
-          = f.text_field :shop_name_cont, placeholder: 'カフェを検索', class: 'input'
-      ul.navbar-nav
-        - if user_signed_in?
-          li.nav-item
-            = active_link_to 'MYPAGE', user_path(current_user), class: 'nav-link'
-          li.nav-item
-            = active_link_to 'カフェの投稿', new_post_path, class: 'nav-link'
-          li.nav-item
-            = active_link_to 'カフェ一覧', posts_path, class: 'nav-link'
-          li.nav-item
-            = active_link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'
-        - else
-          li.nav-item
-            = active_link_to "新規登録", new_user_registration_path, class: 'nav-link'
-          li.nav-item
-            = active_link_to "ログイン", new_user_session_path, class: 'nav-link'
+      = render 'shared/notification_bell'
+      .navigation-container
+        = link_to 'MYPAGE', user_path(current_user), class: 'navigation-link text-white ml-3'
+        = link_to '投稿', new_post_path, class: 'navigation-link text-white ml-3'
+      = link_to user_path(current_user), class: 'responsive-icon mr-4'
+        = icon('fas', 'user')
+      = link_to new_post_path, class: 'responsive-icon'
+        = icon('fas', 'pen')

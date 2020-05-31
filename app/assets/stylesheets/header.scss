@@ -1,0 +1,19 @@
+.responsive-icon {
+  color: white;
+  font-size: 2em;
+  @media screen and (min-width: 426px) {
+    display: none;
+  }
+}
+.white-bell {
+  color: white;
+  font-size: 2em;
+}
+.navigation-link {
+  @media screen and (max-width: 640px) {
+    display: none;
+  }
+}
+.navigation-link:hover {
+  text-decoration: none;
+}

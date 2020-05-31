@@ -1,10 +1,12 @@
-.container.home-top
-  .home-top-main.text-center
-    .home-top-main-title
+.home-top.img-fluid
+  .home-top-text.text-center.pt-5
+    .home-top-main-title.text-white
       p
         | SHARE CAFEへようこそ。
-    .home-top-main-text
+    .home-top-main-text.text-white
       p
         | お気に入りのカフェを投稿しましょう！
-    .home-top-main-start
-      = link_to "登録する", new_user_registration_path, class: "btn btn-xs btn-outline-dark rounded-pill"
+    .home-top-main-link
+      - unless user_signed_in?
+        = link_to "登録する", new_user_registration_path, class: "btn btn-xs btn-dark rounded-pill"
+        = link_to "ログイン", new_user_session_path, class: 'btn btn-xs btn-dark rounded-pill ml-3'

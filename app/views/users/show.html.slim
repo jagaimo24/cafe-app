@@ -15,9 +15,9 @@
               .user-links.col-xs-12.w-100
                 - if current_user == @user
                   .user-links-btn
-                    = active_link_to '編集', edit_user_registration_path,  class: "btn btn-block btn-dark rounded-pill"
+                    = link_to '編集', edit_user_registration_path,  class: "btn btn-block btn-dark rounded-pill"
                   .user-links-btn
-                    = active_link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-block btn-dark rounded-pill"
+                    = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-block btn-dark rounded-pill"
               .user-name.col-xs-6.w-50.text-center
                 = @user.user_name
               .user-follow-box.col-xs-6.w-50

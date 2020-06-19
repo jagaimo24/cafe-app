@@ -48,6 +48,10 @@ group :development, :test do
   gem 'annotate'
   gem 'rails-flog', require: 'flog'
   gem 'faker'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
 end
 
 group :development do

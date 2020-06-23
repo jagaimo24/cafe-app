@@ -1,10 +1,11 @@
-.notification-title.mt-3
-  h3.text-center
-    | 通知
-- if @notifications.exists?
-  .notification-index.jscroll
-    = render partial: 'notifications', collection: @notifications
-    = link_to_next_page @notifications, '次のページ', class: "next"
-- else
-  p
-    | 通知はありません
+.container.main-container
+  .notification-title.mt-3
+    h3.text-center
+      | 通知
+  - if @notifications.exists?
+    .notification-index.jscroll
+      = render partial: 'notifications', collection: @notifications
+      = link_to_next_page @notifications, '次のページ', class: "next"
+  - else
+    p
+      | 通知はありません

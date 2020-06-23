@@ -1,8 +1,9 @@
-.container-form
-  h1.text-center
-    | 編集
-  = render partial: 'form', locals: { post: @post}
-  .ml-auto.mt-3
-    = link_to post_path(@post) do
-      i.fa.fa-reply aria-hidden="true"
-        | 戻る
+.container.main-container
+  .container-form
+    h1.text-center
+      | 編集
+    = render partial: 'form', locals: { post: @post}
+    .ml-auto.mt-3
+      = link_to post_path(@post) do
+        i.fa.fa-reply aria-hidden="true"
+          | 戻る

@@ -1,11 +1,12 @@
-.m-5
-  h3.font-weight-bold
-    | カフェ一覧
-  p.mt-3 = "検索結果: #{@search_posts.total_count}件"
-- if @search_posts.present?
-  .shop-container
-    .shop-box.jscroll
-      = render partial: 'post_list', collection: @search_posts, as: 'post'
-      = link_to_next_page @search_posts, '次のページ', class: "next"
-- else
-  = "「#{params[:q][:shop_name_cont]}」の検索結果に一致するカフェはありませんでした"
+.container.main-container
+  .m-5
+    h3.font-weight-bold
+      | カフェ一覧
+    p.mt-3 = "検索結果: #{@search_posts.total_count}件"
+  - if @search_posts.present?
+    .shop-container
+      .shop-box.jscroll
+        = render partial: 'post_list', collection: @search_posts, as: 'post'
+        = link_to_next_page @search_posts, '次のページ', class: "next"
+  - else
+    = "「#{params[:q][:shop_name_cont]}」の検索結果に一致するカフェはありませんでした"

@@ -1,4 +1,6 @@
 .home-top.img-fluid
+  - if flash[:notice]
+    .alert.alert-primary.text-center = flash[:notice]
   .home-top-text.text-center
     .home-top-main-title.text-white
       p
@@ -10,3 +12,5 @@
       - unless user_signed_in?
         = link_to "登録する", new_user_registration_path, class: "btn btn-xs btn-dark rounded-pill"
         = link_to "ログイン", new_user_session_path, class: 'btn btn-xs btn-dark rounded-pill ml-3'
+        p
+          = link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'btn-animation btn-xs rounded-pill mt-3'

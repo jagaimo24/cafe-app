@@ -16,17 +16,30 @@
       .user-icon {
         font-size: 200px;
       }
-      .user-links-btn {
-        width: 70%;
-        margin: 5px auto;
+      .user-links {
+        @media screen and (max-width: 640px) {
+          display: flex;
+        }
+        .user-links-btn {
+          width: 70%;
+          margin: 5px auto;
+        }
+        .link-signout {
+          @media screen and (max-width: 640px) {
+            letter-spacing: -0.1em;
+          }
+        }
       }
       .user-name {
         font-size: 30px;
         font-weight: bold;
-        margin: 1rem 0;
+        margin-left: 4rem;
       }
-      .user-follower {
-        width: 50%;
+      .user-follow-box {
+        margin-left: 1rem;
+        .user-follower {
+          width: 50%;
+        }
       }
     }
   }

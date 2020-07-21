@@ -16,12 +16,12 @@ end
 users = User.order(:created_at).take(5)
 5.times do
   shop_name  = Faker::Games::Pokemon.name
-  street_address = Faker::Address.street_address
+  address = Faker::Address.street_address
   phone_number = Faker::PhoneNumber.phone_number
   open_time = Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day)
   end_time = Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day)
   review = Faker::Lorem.sentence(word_count: 5)
-  users.each { |user| user.posts.create!(shop_name: shop_name, review: review, street_address: street_address, phone_number: phone_number, open_time: open_time, end_time: end_time, user_id: user.id) }
+  users.each { |user| user.posts.create!(shop_name: shop_name, review: review, address: address, phone_number: phone_number, open_time: open_time, end_time: end_time, user_id: user.id) }
 end
 
 users = User.all

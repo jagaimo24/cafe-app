@@ -9,6 +9,9 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'load'
     script[src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"]
     = javascript_include_tag 'application', 'data-turbolinks-track': 'load'
+    script[src="//maps.google.com/maps/api/js?key=#{ENV['GMAP_API_KEY']}"]
+    script[src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"]
+    script[src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript']
   body
     = render 'shared/header'
     = yield

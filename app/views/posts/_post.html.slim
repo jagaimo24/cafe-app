@@ -1,12 +1,11 @@
-.card.top-rounded
-  div.card-img-top.text-center
+h4.title
+  = @post.shop_name
+.card.top-rounded.shadow-lg
+  .card-img-top.text-center
     - if @post.image?
       = image_tag @post.image.to_s, class: 'img-fluid h-100 w-100 top-rounded'
     - else
       = image_tag "/assets/default.png", class: 'img-fluid h-100 w-100 top-rounded'
-  .card-header.bg-dark.text-white.rounded
-    h4
-      = @post.shop_name
   table.table.table-bordered.border-dark.shop-table
     tbody
       tr
@@ -25,7 +24,7 @@
         th.table-secondary
           | 住所
         td
-          = simple_format(@post.street_address)
+          = simple_format(@post.address)
       tr
         th.table-secondary
           | URL
@@ -39,3 +38,4 @@
   .card-footer
     p.text-right.font-weight-bold.mr-10
       = @post.created_at.to_s(:datetime_base)
+  = render 'posts/gmap'

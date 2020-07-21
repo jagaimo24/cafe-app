@@ -10,7 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       redirect_to root_path, alert: 'ゲストユーザーを削除できません。'
     end
   end
-  
+
   # GET /resource/sign_up
   # def new
   #   super

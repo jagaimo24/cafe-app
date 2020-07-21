@@ -3,10 +3,13 @@
 # Table name: posts
 #
 #  id                :bigint           not null, primary key
+#  address           :string(255)
 #  date              :string(255)
 #  electrical_outlet :string(255)
 #  end_time          :time
 #  image             :string(255)
+#  latitude          :float(24)
+#  longitude         :float(24)
 #  open_time         :time
 #  phone_number      :string(255)
 #  price             :string(255)
@@ -14,7 +17,6 @@
 #  review            :string(255)
 #  shop_name         :string(255)      not null
 #  smoking_seat      :string(255)
-#  street_address    :string(255)
 #  url               :string(255)
 #  wifi              :string(255)
 #  created_at        :datetime         not null

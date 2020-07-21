@@ -14,8 +14,10 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.time :open_time
       t.time :end_time
       t.string :phone_number
-      t.string :street_address
+      t.string :address
       t.string :smoking_seat
+      t.float :latitude
+      t.float :longitude
       t.datetime :created_at, null: false
       t.datetime :updated_at, null: false
       t.timestamps

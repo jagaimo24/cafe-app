@@ -28,3 +28,4 @@
 /spring/*.pid
 /public/uploads
 .DS_Store
+.env

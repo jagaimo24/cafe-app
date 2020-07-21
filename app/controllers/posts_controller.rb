@@ -8,6 +8,11 @@ class PostsController < ApplicationController
   def show
     @comments = @post.comments.includes(:user).order(created_at: :desc)
     @comment = Comment.new(post_id: @post.id)
+    @hash = Gmaps4rails.build_markers(@post) do |post, marker|
+      marker.lat post.latitude
+      marker.lng post.longitude
+      marker.infowindow render_to_string(partial: "posts/infowindow", locals: { post: post })
+    end
   end
 
   def new
@@ -63,8 +68,10 @@ class PostsController < ApplicationController
                                  :rating,
                                  :review,
                                  :smoking_seat,
-                                 :street_address,
+                                 :address,
                                  :url,
-                                 :wifi)
+                                 :wifi,
+                                 :latitude,
+                                 :longitude)
   end
 end

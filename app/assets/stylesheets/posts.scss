@@ -1,9 +1,6 @@
 h1 {
   margin-left: auto;
 }
-.shop-table {
-  margin: 0;
-}
 .posts_button {
   a {
       margin: 0 8px;
@@ -41,4 +38,41 @@ h1 {
     border-top-left-radius: 1.2rem;
     border-top-right-radius: 1.2rem;
   }
+}
+.related-products {
+  background-color: #fff;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  padding: 40px 15px;
+}
+.posts-box {
+  border: 0.8px solid #ccc;
+  border-radius: 0.4rem;
+  padding: 10px;
+}
+.post-image {
+  margin-bottom: 1rem;
+  overflow:hidden;
+  border-radius: 0.3rem !important;
+ }
+.post-image img {
+ transition:1s all;
+}
+.post-image img:hover {
+  transform:scale(1.2,1.2);
+  transition:1s all;
+}
+table, th, td {
+  border-style:none!important;
+}
+.table-color {
+  background-color: #ddd9d9bd;
+  width: 15%;
+  text-align: center;
+}
+.user-icon {
+  font-size: 3.5em;
+}
+.img-icon {
+  width: 50px;
 }

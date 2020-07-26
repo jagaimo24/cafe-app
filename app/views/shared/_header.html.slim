@@ -8,7 +8,11 @@ header
     - if user_signed_in?
       = render 'shared/notification_bell'
       .navigation-container
-        = link_to 'MYPAGE', user_path(current_user), class: 'navigation-link text-white ml-3'
+        = link_to user_path(current_user), class: 'navigation-link ml-3' do
+          - if current_user.image?
+            = image_tag current_user.image.to_s, class: "rounded-pill img-icon"
+          - else
+            i.fas.fa-user-circle.mr-2.user-icon
         = link_to '投稿', new_post_path, class: 'navigation-link text-white ml-3'
       = link_to user_path(current_user), class: 'responsive-icon mr-4'
         = icon('fas', 'user')

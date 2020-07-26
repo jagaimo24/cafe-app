@@ -1,41 +1,52 @@
 h4.title
   = @post.shop_name
-.card.top-rounded.shadow-lg
-  .card-img-top.text-center
+.shadow-lg.row
+  .col-md-5.mt-3
     - if @post.image?
-      = image_tag @post.image.to_s, class: 'img-fluid h-100 w-100 top-rounded'
+      = image_tag @post.image.to_s, class: 'img-fluid w-100 rounded'
     - else
-      = image_tag "/assets/default.png", class: 'img-fluid h-100 w-100 top-rounded'
-  table.table.table-bordered.border-dark.shop-table
-    tbody
-      tr
-        th.table-secondary
-          | 営業時間
-        td
-          = "#{@post.open_time}".slice(11..15)
-          | 〜
-          = "#{@post.end_time}".slice(11..15)
-      tr
-        th.table-secondary
-          | 電話番号
-        td
-          = @post.phone_number
-      tr
-        th.table-secondary
-          | 住所
-        td
-          = simple_format(@post.address)
-      tr
-        th.table-secondary
-          | URL
-        td
-          = @post.url
-      tr
-        th.table-secondary
-          | レビュー
-        td
-          = simple_format(@post.review)
-  .card-footer
-    p.text-right.font-weight-bold.mr-10
-      = @post.created_at.to_s(:datetime_base)
+      = image_tag "/assets/default.png", class: 'img-fluid w-100 rounded'
+  .col-md-7
+    = link_to user_path(post.user) do
+      .row.ml-2.mt-3
+        - if post.user.image?
+          = image_tag post.user.image.to_s, class: "rounded-pill img-icon"
+        - else
+          i.fas.fa-user-circle.mr-2.user-icon
+        h6.mt-3
+          = post.user.user_name
+    table.table.mt-3 style="border-collapse: initial;"
+      tbody
+        tr
+          th.table-color
+            | 営業時間
+          td
+            = "#{@post.open_time}".slice(11..15)
+            | 〜
+            = "#{@post.end_time}".slice(11..15)
+        tr
+          th.table-color
+            | 電話番号
+          td
+            = @post.phone_number
+        tr
+          th.table-color
+            | 住所
+          td
+            = simple_format(@post.address)
+        tr
+          th.table-color
+            | URL
+          td
+            = @post.url
+        tr
+          th.table-color
+            | レビュー
+          td
+            = simple_format(@post.review)
+        tr
+          th.table-color
+            | 投稿日
+          td
+            = @post.created_at.to_s(:datetime_base)
   = render 'posts/gmap'

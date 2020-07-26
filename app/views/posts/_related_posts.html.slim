@@ -1,0 +1,13 @@
+.col-md-3.col-sm-6.col-xs-12
+  .posts-box.mb-3
+    = link_to post_path(post) do
+      .post-image
+        - if @post.image?
+          = image_tag post.image.to_s, class: 'img-fluid rounded-lg'
+        - else
+          = image_tag "/assets/default.png", class: 'img-fluid rounded-lg'
+      div
+        h6
+          = post.shop_name
+        h7
+          = post.updated_at.strftime("%Y/%m/%d")

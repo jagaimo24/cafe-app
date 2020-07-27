@@ -1,0 +1,28 @@
+.col-md-4.col-sm-6.col-xs-12.mt-3
+  .posts-box.mb-3
+    = link_to post_path(post) do
+      .post-image
+        - if post.image?
+          = image_tag post.image.to_s, class: 'img-fluid rounded-lg recent-img'
+        - else
+          = image_tag "/assets/default.png", class: 'img-fluid rounded-lg recent-img'
+      div
+        h5
+          = post.shop_name
+        h6
+          = post.address
+        h6
+          = post.updated_at.strftime("%Y/%m/%d")
+        .icon-box
+          .icon-box__item
+            i.fas.fa-comment-alt
+              = post.comments.count
+        = link_to user_path(post.user) do
+          .ml-1.mt-2
+            - if post.user.image?
+              = image_tag post.user.image.to_s, class: "rounded-pill img-icon"
+            - else
+              i.fas.fa-user-circle.mr-2.user-icon
+            = post.user.user_name
+        div[class="favorites-button-#{post.id} favorite-btn"]
+          = render partial: 'favorites/favorite', locals: { post: post }

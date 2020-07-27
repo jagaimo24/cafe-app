@@ -13,7 +13,8 @@ class PostsController < ApplicationController
       marker.lng post.longitude
       marker.infowindow render_to_string(partial: "posts/infowindow", locals: { post: post })
     end
-    @related_posts = Post.where(user_id: @post.user_id).where.not(id: @post.id).order(created_at: :desc).limit(4)
+    @related_posts = Post.where(user_id: @post.user_id).where.not(id: @post.id).
+      order(created_at: :desc).limit(4)
   end
 
   def new

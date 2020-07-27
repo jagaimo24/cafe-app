@@ -14,3 +14,10 @@
         = link_to "ログイン", new_user_session_path, class: 'btn btn-xs btn-dark rounded-pill ml-3'
         p
           = link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'btn-animation btn-xs rounded-pill mt-3'
+.container.mt-4
+  .row.contents-box
+    .col-sm-12
+      h4 | 最近投稿されたカフェ
+    = render partial: "recent_posts", collection: @recent_posts, as: "post"
+    .col-sm-12
+      = link_to "もっと見る", posts_path, class: 'read-more-btn'

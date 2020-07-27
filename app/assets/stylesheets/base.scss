@@ -15,6 +15,9 @@ a {
 a:hover {
   text-decoration: none;
 }
+img {
+  object-fit: cover;
+}
 .main-container {
   min-height: 100vh;
 }

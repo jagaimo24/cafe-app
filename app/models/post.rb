@@ -48,7 +48,8 @@ class Post < ApplicationRecord
   end
 
   def create_notification_comment!(current_user, comment_id)
-    temp_ids = Comment.where(post_id: id).where.not("user_id = ? or user_id = ?", current_user.id, user_id).select(:user_id).distinct
+    temp_ids = Comment.where(post_id: id).
+      where.not("user_id = ? or user_id = ?", current_user.id, user_id).select(:user_id).distinct
     temp_ids.each do |temp_id|
       save_notification_comment!(current_user, comment_id, temp_id['user_id'])
     end

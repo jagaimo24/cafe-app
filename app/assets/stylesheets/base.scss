@@ -50,3 +50,11 @@ img {
 h1 {
   margin: 30px 0;
 }
+.nav-tabs {
+  border-bottom: none;
+  .nav-link.active{
+    background-color: #f7f7f7;
+    border: none;
+    border-bottom: 1px solid #666;
+  }
+}

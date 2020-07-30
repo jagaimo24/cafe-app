@@ -26,7 +26,21 @@
                     = render partial: 'relationships/follow_count', locals: { user: @user }
                   - unless current_user == @user
                     = render partial: 'relationships/follow_button', locals: { user: @user }
-  .shop-container
-    .shop-box.jscroll
-      = render partial: 'posts/post_list', collection: @user.posts, as: 'post'
-      = link_to_next_page @search_posts, '次のページ', class: "next"
+  ul.nav.nav-tabs.justify-content-center[role="tablist"]
+    li.nav-item
+      a#item1-tab.nav-link.active[data-toggle="tab" href="#item1" role="tab" aria-controls="item1" aria-selected="true"]
+        | 投稿一覧
+    li.nav-item
+      a#item2-tab.nav-link[data-toggle="tab" href="#item2" role="tab" aria-controls="item2" aria-selected="false"]
+        | いいね一覧
+  .tab-content
+    #item1.tab-pane.fade.show.active[role="tabpanel" aria-labelledby="item1-tab"]
+      .shop-container
+        .shop-box.jscroll
+          = render partial: 'posts/post_list', collection: @user.posts, as: 'post'
+          = link_to_next_page @search_posts, '次のページ', class: "next"
+    #item2.tab-pane.fade[role="tabpanel" aria-labelledby="item2-tab"]
+      .shop-container
+        .shop-box.jscroll
+          = render partial: 'posts/post_list', collection: current_user.favorite_posts, as: 'post'
+          = link_to_next_page @search_posts, '次のページ', class: "next"

@@ -3,12 +3,12 @@
     .alert.alert-primary.text-center = flash[:notice]
   .home-top-text.text-center
     .home-top-main-title.text-white
-      p
-        | SHARE CAFEへようこそ。
+      h1
+        | ShareCafe
     .home-top-main-text.text-white
-      p
-        | お気に入りのカフェを投稿しましょう！
-    .home-top-main-link
+      h4
+        | お気に入りのカフェを投稿してみましょう！
+    .home-top-main-link.mt-5
       - unless user_signed_in?
         = link_to "登録する", new_user_registration_path, class: "btn btn-xs btn-dark rounded-pill"
         = link_to "ログイン", new_user_session_path, class: 'btn btn-xs btn-dark rounded-pill ml-3'
@@ -21,3 +21,9 @@
     = render partial: "recent_posts", collection: @recent_posts, as: "post"
     .col-sm-12
       = link_to "もっと見る", posts_path, class: 'read-more-btn'
+.container.mt-4
+  .row.contents-box
+    .col-sm-12
+      h4 | いいねランキング
+    ul.bxslider
+      = render partial: "higher_rank", collection: @higher_rank, as: "post"

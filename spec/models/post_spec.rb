@@ -5,7 +5,7 @@
 #  id                :bigint           not null, primary key
 #  address           :string(255)
 #  date              :string(255)
-#  electrical_outlet :string(255)
+#  electrical_outlet :integer
 #  end_time          :time
 #  image             :string(255)
 #  latitude          :float(24)
@@ -13,12 +13,11 @@
 #  open_time         :time
 #  phone_number      :string(255)
 #  price             :string(255)
-#  rating            :integer
+#  rating            :float(24)
 #  review            :string(255)
 #  shop_name         :string(255)      not null
-#  smoking_seat      :string(255)
 #  url               :string(255)
-#  wifi              :string(255)
+#  wifi              :integer
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  user_id           :bigint           not null

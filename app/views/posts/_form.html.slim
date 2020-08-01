@@ -25,6 +25,37 @@
     .form_border_bottom.col-sm-3
       = f.time_select :end_time
   .form-group
-    = f.label :review, '投稿内容'
+    i.fas.fa-plug.mr-1
+    span
+      | 充電 <br>
+    span.mr-2
+      = f.label :あり, class: "electrical_outlet"
+      = f.radio_button :electrical_outlet, :able, checked: "checked"
+    span
+      = f.label :なし, class: "electrical_outlet"
+      = f.radio_button :electrical_outlet, :unable
+  .form-group
+    i.fas.fa-wifi.mr-1
+    span
+      | Wifi <br>
+    span.mr-2
+      = f.label :あり, class: "wifi_label"
+      = f.radio_button :wifi, :yes, checked: "checked"
+    span
+      = f.label :なし, class: "wifi_label"
+      = f.radio_button :wifi, :no
+  .form-group#star
+    div
+      = f.label :rating,'評価'
+    = f.hidden_field :rating, id: :review_star
+  javascript:
+    $('#star').raty({
+      size     : 5,
+      starOff:  '#{asset_path('star-off.png')}',
+      starOn : '#{asset_path('star-on.png')}',
+      scoreName: 'post[rating]'
+    });
+  .form-group
+    = f.label :review, 'レビュー'
     = f.text_area :review, class: 'form-control', rows:7
-  = f.submit '投稿', class: 'btn btn-info btn-block rounded-pill'
+  = f.submit '投稿', class: 'btn btn-dark btn-block rounded-pill'

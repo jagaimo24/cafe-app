@@ -1,12 +1,12 @@
 h4.title
   = @post.shop_name
 .shadow-lg.row
-  .col-md-5.mt-3
+  .col-lg-5.col-md-12.col-sm-12.mt-3
     - if @post.image?
       = image_tag @post.image.to_s, class: 'img-fluid w-100 rounded'
     - else
       = image_tag "/assets/default.png", class: 'img-fluid w-100 rounded'
-  .col-md-7
+  .col-lg-7.col-md-12.col-sm-12
     = link_to user_path(post.user) do
       .row.ml-2.mt-3
         - if post.user.image?
@@ -36,9 +36,52 @@ h4.title
             = simple_format(@post.address)
         tr
           th.table-color
+            i.fas.fa-wifi.mr-1
+            span
+              | Wifi
+          td
+            - if @post.wifi == "yes"
+              span
+                | 有
+            - elsif @post.wifi == "no"
+              span
+                | 無
+            - else
+              span
+                | 不明
+        tr
+          th.table-color
+            i.fas.fa-plug.mr-1
+            span
+              | 充電
+          td
+            - if @post.electrical_outlet == "able"
+              span
+                | 可
+            - elsif @post.electrical_outlet == "unable"
+              span
+                | 不可
+            - else
+              span
+                | 不明
+        tr
+          th.table-color
             | URL
           td
             = @post.url
+        tr
+          th.table-color
+            | 評価
+          td
+            div id="star-rate-#{@post.id}"
+            javascript:
+              $('#star-rate-#{@post.id}').raty({
+                size: 5,
+                starOff: '#{asset_path('star-off.png')}',
+                starOn : '#{asset_path('star-on.png')}',
+                readOnly: true,
+                score: #{@post.rating}
+              });
         tr
           th.table-color
             | レビュー

@@ -14,6 +14,7 @@
 //= require jquery.jscroll.min.js
 //= require rails-ujs
 //= require bxslider
+//= require jquery.raty.js
 //= require activestorage
 //= require turbolinks
 //= require popper

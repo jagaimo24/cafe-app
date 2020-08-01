@@ -69,7 +69,6 @@ class PostsController < ApplicationController
                                  :price,
                                  :rating,
                                  :review,
-                                 :smoking_seat,
                                  :address,
                                  :url,
                                  :wifi,

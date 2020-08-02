@@ -12,7 +12,7 @@ jobs:
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           - MYSQL_ROOT_HOST: '%'
-    working_directory: ~/cafeApp
+    working_directory: ~/cafe-app
     steps:
       - checkout
       - restore_cache:

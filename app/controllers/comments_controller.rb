@@ -6,10 +6,10 @@ class CommentsController < ApplicationController
     if @comment.save
       @post = @comment.post
       @post.create_notification_comment!(current_user, @comment.id)
-      flash[:notice] = 'コメントを投稿しました!'
+      flash[:notice] = 'コメントを投稿しました'
       redirect_to post_path(@post)
     else
-      flash[:error_messages] = @comment.errors.full_messages
+      flash.now[:error_messages] = @comment.errors.full_messages
       render 'posts/show'
     end
   end

@@ -28,24 +28,24 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     @post.user_id = current_user.id
     if @post.save(post_params)
-      flash[:notice] = "投稿しました!"
+      flash[:notice] = "投稿しました"
       redirect_to user_path(current_user)
     else
-      flash[:error_messages] = @post.errors.full_messages
+      flash.now[:error_messages] = @post.errors.full_messages
       render 'new'
     end
   end
 
   def update
     @post.update(post_params)
-    flash[:notice] = "更新しました!"
+    flash[:notice] = "更新しました"
     redirect_to post_path(@post)
   end
 
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: "削除しました!" }
+      format.html { redirect_to posts_url, notice: "削除しました" }
       format.json { head :no_content }
     end
   end

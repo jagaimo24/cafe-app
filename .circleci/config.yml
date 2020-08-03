@@ -7,12 +7,12 @@ jobs:
     docker:
       - image: circleci/ruby:2.5.3-stretch-node-browsers
         environment:
-          - RILS_ENV: 'test'
+          - RAILS_ENV: test
       - image: circleci/mysql:5.7
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           - MYSQL_ROOT_HOST: '%'
-    working_directory: ~/cafe-app
+    working_directory: ~/repo
     steps:
       - checkout
       - restore_cache:
@@ -24,6 +24,7 @@ jobs:
           command: |
             gem install bundler -v 1.17.3
             bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run: yarn install
       - save_cache:
           paths:
             - ./vendor/bundle

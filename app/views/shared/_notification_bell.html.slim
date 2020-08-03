@@ -1,5 +1,5 @@
 = link_to notifications_path do
-  - if unchecked_notifications.exists?
+  - if current_user.passive_notifications.where(checked: false).exists?
     span.fa-stack
       = icon('fas', 'bell fa-stack-2x white-bell')
       = icon('fas', 'circle fa-stack-1x n-circle')

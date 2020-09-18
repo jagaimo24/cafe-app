@@ -6,6 +6,5 @@ RSpec.describe "Homes", type: :request do
       get root_path
       expect(response).to have_http_status(:success)
     end
-
   end
 end

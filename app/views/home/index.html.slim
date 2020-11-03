@@ -7,7 +7,7 @@
         | ShareCafe
     .home-top-main-text.text-white
       h4
-        | お気に入りのカフェを投稿してみましょう！
+        | お気に入りのカフェを投稿してみましょう！!
     .home-top-main-link.mt-5
       - unless user_signed_in?
         = link_to "登録する", new_user_registration_path, class: "btn btn-xs btn-dark rounded-pill"
